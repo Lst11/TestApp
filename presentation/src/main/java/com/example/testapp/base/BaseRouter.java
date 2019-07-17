@@ -6,7 +6,7 @@ import android.widget.Toast;
 public abstract class BaseRouter {
     private final BaseActivity activity;
 
-    BaseRouter(BaseActivity activity) {
+    public BaseRouter(BaseActivity activity) {
         this.activity = activity;
     }
 
