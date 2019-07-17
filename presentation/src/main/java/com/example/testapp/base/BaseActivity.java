@@ -1,8 +1,8 @@
 package com.example.testapp.base;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends Activity {
 
     //TODO: add compositeDisposable
 
