@@ -2,10 +2,9 @@ package com.example.testapp;
 
 import android.os.Bundle;
 
-import com.example.testapp.base.BaseActivity;
 import com.example.testapp.base.BaseMvpActivity;
 
-public class MainActivity extends BaseMvpActivity<MainPresenter,MainRouter> implements MainView {
+public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, MainRepository> implements MainView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +15,12 @@ public class MainActivity extends BaseMvpActivity<MainPresenter,MainRouter> impl
 
     @Override
     public MainPresenter prodivePresenter() {
-        return new MainPresenter(this);
+        return new MainPresenter(this, prodiveRepository());
+    }
+
+    @Override
+    public MainRepository prodiveRepository() {
+        return new MainRepository();
     }
 
     @Override

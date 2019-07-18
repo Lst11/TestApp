@@ -34,4 +34,16 @@ public class Person implements DomainEntity {
     public int getAge() {
         return age;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("ID:" + this.id + ";");
+        result.append(" Name:" + this.name + ";");
+        result.append(" Surname:" + this.surname + ";");
+        result.append(" Phone:" + this.phone + ";");
+        result.append(" Age:" + this.age + "\n");
+
+        return result.toString();
+    }
 }

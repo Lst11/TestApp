@@ -1,12 +1,14 @@
 package com.example.testapp.base;
 
-public abstract class BasePresenter<R extends BaseRouter, V extends  BaseView> {
+public abstract class BasePresenter<R extends BaseRouter, V extends BaseView, M extends BaseRepository> {
 
     protected R router = null;
     protected V view = null;
+    protected M repository = null;
 
-    public BasePresenter(V view) {
+    public BasePresenter(V view, M repository) {
         this.view = view;
+        this.repository = repository;
     }
 
     public void addRouter(R router) {

@@ -2,12 +2,15 @@ package com.example.testapp.base;
 
 import android.os.Bundle;
 
-public abstract class BaseMvpActivity<P extends BasePresenter, R extends BaseRouter> extends BaseActivity {
+public abstract class BaseMvpActivity<P extends BasePresenter, R extends BaseRouter, M extends BaseRepository> extends BaseActivity {
 
     P presenter;
     R router;
+    M repository;
 
     public abstract P prodivePresenter();
+
+    public abstract M prodiveRepository();
 
     public abstract R provideRouter();
 

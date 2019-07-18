@@ -18,4 +18,7 @@ android {
 
 dependencies {
     api project(path: ":domain")
+
+    //Dagger 2
+    implementation "javax.inject:javax.inject:1"
 }
