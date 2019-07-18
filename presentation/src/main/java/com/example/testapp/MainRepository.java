@@ -21,11 +21,11 @@ public class MainRepository implements BaseRepository {
     }
 
 
-    public void getAll() {
+    public ArrayList<Person> getAll() {
         ArrayList<Person> list = getPeopleUseCase.getAll();
         for (Person person : list) {
             Log.e("aaa", person.toString());
         }
-
+        return list;
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        style="@style/text_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white_transparent"
+        android:text="Name"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/surnameTextView"
+        style="@style/text_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTextView"
+        android:layout_alignLeft="@+id/nameTextView"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10sp"
+        android:background="@color/white_transparent"
+        android:text="Surname"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

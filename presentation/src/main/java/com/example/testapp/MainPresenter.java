@@ -1,7 +1,9 @@
 package com.example.testapp;
 
-import com.example.testapp.app.App;
+import com.example.domain.entity.Person;
 import com.example.testapp.base.BasePresenter;
+
+import java.util.ArrayList;
 
 public class MainPresenter extends BasePresenter<MainRouter, MainView, MainRepository> {
 
@@ -12,7 +14,7 @@ public class MainPresenter extends BasePresenter<MainRouter, MainView, MainRepos
     @Override
     public void onStart() {
         super.onStart();
-        repository.getAll();
-        view.showPeople();
+        ArrayList<Person> list = repository.getAll();
+        view.showPeople(list);
     }
 }
