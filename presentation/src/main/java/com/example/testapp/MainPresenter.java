@@ -5,6 +5,8 @@ import com.example.testapp.base.BasePresenter;
 
 import java.util.ArrayList;
 
+import io.reactivex.Observable;
+
 public class MainPresenter extends BasePresenter<MainRouter, MainView, MainRepository> {
 
     MainPresenter(MainView view, MainRepository repository) {
@@ -14,7 +16,7 @@ public class MainPresenter extends BasePresenter<MainRouter, MainView, MainRepos
     @Override
     public void onStart() {
         super.onStart();
-        ArrayList<Person> list = repository.getAll();
-        view.showPeople(list);
+        Observable<ArrayList<Person>> observable = repository.getAll();
+        view.showPeople(observable);
     }
 }

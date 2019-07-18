@@ -5,7 +5,9 @@ import com.example.testapp.base.BaseView;
 
 import java.util.ArrayList;
 
+import io.reactivex.Observable;
+
 public interface MainView extends BaseView {
 
-    public void showPeople(ArrayList<Person> list);
+    void showPeople(Observable<ArrayList<Person>> observableList);
 }

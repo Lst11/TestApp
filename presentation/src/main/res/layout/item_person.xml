@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/black"
+    android:layout_margin="15sp"
     android:padding="15dp">
 
     <TextView
@@ -15,8 +16,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:background="@color/white_transparent"
         android:text="Name"

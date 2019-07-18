@@ -8,19 +8,21 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-public class GetPeopleUseCase implements BaseUseCase {
+import io.reactivex.Observable;
+
+public class GetPeopleUseCase extends BaseUseCase {
 
     private PeopleRepository peopleRepository;
-    private PostExecutorThread postExecutorThread;
 
     @Inject
     public GetPeopleUseCase(PeopleRepository peopleRepository, PostExecutorThread postExecutorThread) {
+        super(postExecutorThread.getScheduler());
         this.peopleRepository = peopleRepository;
-        this.postExecutorThread = postExecutorThread;
     }
 
-    public ArrayList<Person> getAll(){
-        return peopleRepository.getAll();
+    public Observable<ArrayList<Person>> getAll() {
+        return peopleRepository.getAll()
+                .observeOn(postExecutorThread)
+                .subscribeOn(workExecutorThread);
     }
-
 }

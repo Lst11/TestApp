@@ -1,7 +1,5 @@
 package com.example.testapp;
 
-import android.util.Log;
-
 import com.example.domain.entity.Person;
 import com.example.domain.usecases.GetPeopleUseCase;
 import com.example.testapp.app.App;
@@ -10,6 +8,8 @@ import com.example.testapp.base.BaseRepository;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
+
+import io.reactivex.Observable;
 
 public class MainRepository implements BaseRepository {
 
@@ -20,12 +20,7 @@ public class MainRepository implements BaseRepository {
         App.appComponent.inject(this);
     }
 
-
-    public ArrayList<Person> getAll() {
-        ArrayList<Person> list = getPeopleUseCase.getAll();
-        for (Person person : list) {
-            Log.e("aaa", person.toString());
-        }
-        return list;
+    public Observable<ArrayList<Person>> getAll() {
+        return getPeopleUseCase.getAll();
     }
 }

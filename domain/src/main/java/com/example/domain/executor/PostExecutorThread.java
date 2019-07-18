@@ -1,9 +1,9 @@
 package com.example.domain.executor;
 
+import io.reactivex.Scheduler;
+
 public interface PostExecutorThread {
 
-
-   //TODO: add getScheduler method;
-
+    Scheduler getScheduler();
 
 }

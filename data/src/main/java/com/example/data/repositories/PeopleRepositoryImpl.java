@@ -1,13 +1,13 @@
 package com.example.data.repositories;
 
-import android.util.Log;
-
 import com.example.domain.entity.Person;
 import com.example.domain.repositories.PeopleRepository;
 
 import java.util.ArrayList;
 
 import javax.inject.Inject;
+
+import io.reactivex.Observable;
 
 public class PeopleRepositoryImpl implements PeopleRepository {
 
@@ -18,8 +18,10 @@ public class PeopleRepositoryImpl implements PeopleRepository {
 
 
     @Override
-    public ArrayList<Person> getAll() {
-        Log.e("aaa", list.toString());
-        return list;
+    public Observable<ArrayList<Person>> getAll() {
+
+        Observable<ArrayList<Person>> observable = Observable.just(list);
+
+        return observable;
     }
 }

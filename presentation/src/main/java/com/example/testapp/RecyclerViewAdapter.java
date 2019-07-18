@@ -62,6 +62,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             parentLayout = view.findViewById(R.id.parentLayout);
             nameTextView = view.findViewById(R.id.nameTextView);
             surnameTextView = view.findViewById(R.id.surnameTextView);
+            //TODO: add image
         }
     }
 
