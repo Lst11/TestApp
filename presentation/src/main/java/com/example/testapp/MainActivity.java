@@ -1,8 +1,9 @@
 package com.example.testapp;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -54,11 +55,26 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
         super.onCreate(savedInstanceState);
         initRecyclerView();
 
-        EditText searchEditText= (EditText) findViewById(R.id.searchEditText);
-        searchEditText.setOnClickListener(v -> Log.e("aaa", "onNext: " + list.toString()));
+        EditText searchEditText = findViewById(R.id.searchEditText);
 
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                searchEditText.setOnClickListener(v -> Log.e("aaa", "onNext: " + list.toString()));
+                filter(editable.toString());
+            }
+        });
     }
-
 
 
     @Override
@@ -100,5 +116,16 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
     protected void onDestroy() {
         super.onDestroy();
 
+    }
+
+    private void filter(String text) {
+
+        ArrayList<Person> filteredList = new ArrayList<>();
+        String textLowerCase = text.toLowerCase();
+        for (Person person : list) {
+            if (person.getName().toLowerCase().contains(textLowerCase) || person.getSurname().toLowerCase().contains(textLowerCase))
+                filteredList.add(person);
+        }
+        adapter.setList(filteredList);
     }
 }
