@@ -115,11 +115,9 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
     }
 
     private void filter(String text) {
-
         ArrayList<Person> filteredList = new ArrayList<>();
         String textLowerCase = text.toLowerCase();
         for (Person person : list) {

@@ -4,14 +4,14 @@ public class Person implements DomainEntity {
     private String id;
     private String name;
     private String surname;
-    private String phone;
+    private String imageURL;
     private int age;
 
-    public Person(String id, String name, String surname, String phone, int age) {
+    public Person(String id, String name, String surname, String imageURL, int age) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.phone = phone;
+        this.imageURL = imageURL;
         this.age = age;
     }
 
@@ -27,8 +27,8 @@ public class Person implements DomainEntity {
         return surname;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getImageURL() {
+        return imageURL;
     }
 
     public int getAge() {
@@ -41,7 +41,7 @@ public class Person implements DomainEntity {
         result.append("ID:" + this.id + ";");
         result.append(" Name:" + this.name + ";");
         result.append(" Surname:" + this.surname + ";");
-        result.append(" Phone:" + this.phone + ";");
+        result.append(" ImageURL:" + this.imageURL + ";");
         result.append(" Age:" + this.age + "\n");
 
         return result.toString();
