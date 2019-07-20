@@ -38,7 +38,12 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
         public void onNext(ArrayList<Person> arrayFromObserwable) {
             Log.e("aaa", "onNext: " + arrayFromObserwable.toString());
             list = arrayFromObserwable;
-            adapter.setList(list);
+
+            EditText searchEditText = findViewById(R.id.searchEditText);
+            String text = searchEditText.getText().toString();
+            Log.e("aaa", "text to filter: " + text);
+            filter(text);
+
         }
 
         @Override
@@ -93,9 +98,15 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
         switch (item.getItemId()) {
             case R.id.action_sort_by_name:
                 Log.e("aaa", "action_sort_by_name");
+                presenter.onClickSortByName();
                 return true;
             case R.id.action_sort_by_surname:
                 Log.e("aaa", "action_sort_by_surname");
+                presenter.onClickSortBySurname();
+                return true;
+            case R.id.action_sort_by_age:
+                Log.e("aaa", "action_sort_by_age");
+                presenter.onClickSortByAge();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -126,7 +137,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
     @Override
     public void showPeople(Observable<ArrayList<Person>> observableList) {
         observableList.subscribe(observer);
-        adapter.setList(list);
     }
 
     private void initRecyclerView() {
@@ -150,6 +160,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
             if (person.getName().toLowerCase().contains(textLowerCase) || person.getSurname().toLowerCase().contains(textLowerCase))
                 filteredList.add(person);
         }
+        Log.e("aaa", "filtered list: " + filteredList.toString());
         adapter.setList(filteredList);
     }
 }

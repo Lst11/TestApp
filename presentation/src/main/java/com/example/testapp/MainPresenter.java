@@ -19,4 +19,22 @@ public class MainPresenter extends BasePresenter<MainRouter, MainView, MainRepos
         Observable<ArrayList<Person>> observable = repository.getAll();
         view.showPeople(observable);
     }
+
+    public void onClickSortByName(){
+        Observable<ArrayList<Person>> observable = repository.getAllByName();
+        view.showPeople(observable);
+    }
+
+    public void onClickSortBySurname(){
+        Observable<ArrayList<Person>> observable = repository.getAllBySurname();
+        view.showPeople(observable);
+    }
+
+    public void onClickSortByAge(){
+        Observable<ArrayList<Person>> observable = repository.getAllByAge();
+        view.showPeople(observable);
+    }
+
+
+
 }

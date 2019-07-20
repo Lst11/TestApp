@@ -3,4 +3,5 @@
     <string name="search">Search</string>
     <string name="first_sort_parameter">Sort by name</string>
     <string name="second_sort_parameter">Sort by surname</string>
+    <string name="third_sort_parameter">Sort by age</string>
 </resources>

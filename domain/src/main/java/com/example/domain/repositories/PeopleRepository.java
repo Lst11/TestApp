@@ -7,7 +7,8 @@ import io.reactivex.Observable;
 
 public interface PeopleRepository {
 
-    //TODO: add get and search methods;
-
     Observable<ArrayList<Person>> getAll();
+    Observable<ArrayList<Person>> getAllByName();
+    Observable<ArrayList<Person>> getAllBySurname();
+    Observable<ArrayList<Person>> getAllByAge();
 }

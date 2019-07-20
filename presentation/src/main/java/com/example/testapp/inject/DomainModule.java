@@ -29,6 +29,7 @@ public class DomainModule {
     }
 
     @Provides
+    @Singleton
     PostExecutorThread providePostExecutorThread() {
         return new UIThread();
     }

@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 public abstract class BaseMvpActivity<P extends BasePresenter, R extends BaseRouter, M extends BaseRepository> extends BaseActivity {
 
-    P presenter;
-    R router;
-    M repository;
+    protected P presenter;
+    protected R router;
+    protected M repository;
 
     public abstract P prodivePresenter();
 

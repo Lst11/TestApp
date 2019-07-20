@@ -16,6 +16,4 @@ abstract class BaseUseCase{
         this.postExecutorThread = postExecutorThread;
         this.workExecutorThread = workExecutorThread;
     }
-
-
 }
