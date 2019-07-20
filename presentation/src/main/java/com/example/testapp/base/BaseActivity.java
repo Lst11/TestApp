@@ -1,15 +1,15 @@
 package com.example.testapp.base;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    protected void addToDisposable(Disposable disposable){
+    protected void addToDisposable(Disposable disposable) {
         compositeDisposable.add(disposable);
     }
 

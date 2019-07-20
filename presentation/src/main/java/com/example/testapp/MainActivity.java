@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,11 +52,20 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
         }
     };
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initRecyclerView();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         EditText searchEditText = findViewById(R.id.searchEditText);
 
@@ -74,6 +86,20 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainRouter, Mai
                 filter(editable.toString());
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_sort_by_name:
+                Log.e("aaa", "action_sort_by_name");
+                return true;
+            case R.id.action_sort_by_surname:
+                Log.e("aaa", "action_sort_by_surname");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
